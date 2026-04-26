@@ -99,7 +99,7 @@ def run_pipeline(path, title):
             print(f"{name} Epoch {epoch+1}: Loss = {epoch_loss:.4f}")
 
         # I plot training loss so I can see if it is learning or just stuck/overfitting.
-        plot_loss(losses, f"{name} Training Loss")
+        plot_loss(losses, f"{title} - {name} Training Loss")
 
         model.eval()
         with torch.no_grad():
@@ -123,7 +123,7 @@ def run_pipeline(path, title):
             print(f"RMSE: {rmse:.4f}")
 
             # This plot is the real proof: where my model fail and where it match.
-            plot_predictions(y_true_np, preds_np, f"{name} Predictions")
+            plot_predictions(y_true_np, preds_np, f"{title} - {name} Predictions")
 
 
 run_pipeline("data/Electric_Production.csv", "ELECTRICITY DATASET")
